@@ -1,5 +1,9 @@
 <?php declare(strict_types=1);
 
+ namespace Alura;
+
+ spl_autoload_register();
+
 require 'ArrayUltis.php';
 
 $correntistas_e_compras = [
