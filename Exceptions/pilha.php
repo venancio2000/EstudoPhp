@@ -5,7 +5,7 @@ function funcao1()
     echo 'Entrei na função 1' . PHP_EOL;
     try {
         funcao2();
-    }catch (RuntimeException | DivisionByZeroError $erroOuExcecao){
+    }catch (throwable $erroOuExcecao){
         echo $erroOuExcecao->getMessage() .PHP_EOL;
         echo $erroOuExcecao->getLine() . PHP_EOL;
         echo $erroOuExcecao->getTraceAsString() .PHP_EOL;
@@ -17,7 +17,8 @@ function funcao1()
 
 function funcao2()
 {
-    throw new RuntimeException('essa e a mensafem de exceção');
+    intdiv(1,0);
+    throw new BadFunctionCallException('essa e a mensagem de exceção');
 
 
     echo 'Saindo da função 2' . PHP_EOL;
